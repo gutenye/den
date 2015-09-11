@@ -1,11 +1,15 @@
 den, extra helpers, utilities for DOM.
 ================
 
-Idea
+**Idea**: Native methods are prefered.
+
+API
 ----
 
-1. use native method first
-2. if can't find, find it in den.
+```
+den.createElement(htmlText)
+den(selector).insertAfter(newNode, referenceNode)
+```
 
 Install
 ------
@@ -14,3 +18,5 @@ Install
 $ npm install denjs --save
 $ boewr install denjs --save
 ```
+
+
