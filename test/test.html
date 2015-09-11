@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>?Den</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <div id="a">hello</div>
+  <div id="b">world</div>
+</body>
+<script src="../den.js"></script>
+<script>
+  var pd=console.log.bind(console)
+  function $(expr, container) { return typeof expr === "string" ? (container || document).querySelector(expr) : expr || null }
+  function $$(expr, container) { return [].slice.call((container || document).querySelectorAll(expr)) }
+</script>
+</html>

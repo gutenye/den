@@ -1,0 +1,16 @@
+{
+  "name": "denjs",
+  "main": "den.js",
+  "version": "0.0.1",
+  "authors": [
+    "Guten Ye <ywzhaifei@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
