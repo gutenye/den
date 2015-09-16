@@ -1,4 +1,4 @@
-den, extra helpers, utilities for DOM.
+den, A DOM utility library that uses native methods and returns native HTMLElement.
 ================
 
 **Idea**: Native APIs are first-class citizen, always return native HTMLElement.
