@@ -6,17 +6,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+  <div>HELPERS: body, list, a, b</div>
+
   <div id="list">
     <div id="a">Item A</div>
     <div id="b">Item B</div>
+    <div id="c">Item C</div>
   </div>
+
+  <div contenteditable>
+    <div id="line-1">an</div>
+    <div id="line-2">editor</div>
+  </div>
+
+  <div>den.keystroke: <input onkeydown="keydown(event)"></div>
 </body>
 <script src="../den.js"></script>
 <script>
-  var pd=console.log.bind(console)
+  var pd = console.log.bind(console)
   function $(expr, container) { return typeof expr === "string" ? (container || document).querySelector(expr) : expr || null }
   function $$(expr, container) { return [].slice.call((container || document).querySelectorAll(expr)) }
 
+  var body = document.body,
+      list = $("#list"),
+      a = $("#a"),
+      b = $("#b"),
+      c = $("#c")
+
+
   //pd("closest:", den("#a").closest("#list"))
+  den.moveCursor($("#line-2"), 1)
+
+  var keydown = (e) => {
+    pd("den.key:", den.keystroke(e))
+  }
 </script>
 </html>

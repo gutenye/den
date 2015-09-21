@@ -12,6 +12,7 @@ if not defined $ and $$, it will define
   window.$$ = function(selector) { return [].slice.call(document.querySelectorAll(selector)) }
 
 den("#parent").insertAfter(node, $("#child-a"))
+[].slice.call(x.childNodes)
 ```
 
 API
@@ -32,6 +33,7 @@ den(selector) -> <#Den>
 - den.isNode(obj) .. isElement isText isDocument isWindow
 - den.isIE(maxVersion) .. isIOS isMac
 - den.createElement(htmlText) -> HTMLElement
+- den.keystroke(event) -> "a" "ctrl-a" "ctrl-alt-shift-cmd-a"
 ```
 
 Install
