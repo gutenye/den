@@ -44,21 +44,24 @@
     this.node.insertBefore(newNode, this.node.children[index])
   }
 
+  // -> removed node
   // remove self
   Den.prototype.remove = function() {
     if (this.node === null)
-      return
-    this.node.parentElement.removeChild(this.node)
+      return null
+    return this.node.parentElement.removeChild(this.node)
   }
 
+  // -> removed node
   // remove child at
   Den.prototype.removeAt = function(index) {
     if (this.node === null)
-      return
-    this.node.removeChild(this.node.children[index])
+      return null
+    return this.node.removeChild(this.node.children[index])
   }
 
 
+  // include current node
   Den.prototype.closest = function(selector) {
     if (this.node === null)
       return null
@@ -152,27 +155,24 @@
     return node.nodeType === document.TEXT_NODE ? node.parentElement : node
   }
 
+  // select(node|selector)
   // select(startNode, startOffset, endNode, endOffset)
   den.select = function(startNode, startOffset, endNode, endOffset) {
+    startNode = den(startNode).node
     if (startNode === null)
       return null
     var range = document.createRange()
-    var selection = getSelection()
-    range.setStart(startNode, startOffset)
-    if (endNode) {
+    if (arguments.length === 1) {
+      range.selectNodeContents(startNode)
+    } else if (arguments.length === 2) {
+      range.setStart(startNode, startOffset)
+    } else {
+      endNode = den(endNode).node
+      range.setStart(startNode, startOffset)
       range.setEnd(endNode, endOffset)
     }
-    selection.removeAllRanges()
-    selection.addRange(range)
-    return range
-  }
-
-  den.selectNodeContents = function(node) {
-    var range = document.createRange()
-    var selection = getSelection()
-    range.selectNodeContents(node)
-    selection.removeAllRanges()
-    selection.addRange(range)
+    getSelection().removeAllRanges()
+    getSelection().addRange(range)
     return range
   }
 
