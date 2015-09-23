@@ -8,7 +8,7 @@
 	else
 		root["den"] = factory()
 })(this, function() {
-  Den = function(selector) {
+  var Den = function(selector) {
     if (typeof selector === "string") {
       this.node = document.querySelector(selector)
     } else if (den.isNode(selector)) {
@@ -21,7 +21,6 @@
   var den = function(selector) {
     return new Den(selector)
   }
-
 
   // den(parent).insertAfter(node, reference)
   Den.prototype.insertAfter = function(newNode, referenceNode) {
