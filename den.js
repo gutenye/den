@@ -246,7 +246,7 @@
     var keyCode = event.which || event.keyCode || event.charCode
     var key = keys[keyCode]
 
-    keystroke = ''
+    var keystroke = ''
     if (event.ctrlKey) {
       keystroke += 'ctrl'
     }
