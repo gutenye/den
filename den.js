@@ -1,12 +1,7 @@
 (function (root, factory) {
-	if(typeof exports === "object" && typeof module === "object")
+	if (typeof exports === "object" && typeof module === "object")
 		module.exports = factory()
-	else if(typeof define === "function" && define.amd)
-		define(factory)
-	else if(typeof exports === "object")
-		exports["den"] = factory()
-	else
-		root["den"] = factory()
+  root["den"] = factory()
 })(this, function() {
   var Den = function(selector) {
     if (typeof selector === "string") {
