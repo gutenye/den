@@ -36,6 +36,7 @@
         newNode = document.createElement(newTag)
         newNode.innerHTML = this.node.innerHTML
       }
+
       for (let attr of this.node.attributes) {
         newNode.setAttribute(attr.name, attr.value)
       }
@@ -499,4 +500,9 @@ if (window.$ === undefined && window.$$ === undefined) {
   window.$ = function(selector) { return typeof selector === "string" ? document.querySelector(selector) : selector || null }
   window.$$ = function(selector) { return Array.from(document.querySelectorAll(selector)) }
 }
+
+// fix chrome for..of
+NodeList.prototype[Symbol.iterator] = Array.prototype[Symbol.iterator]
+NamedNodeMap.prototype[Symbol.iterator] = Array.prototype[Symbol.iterator]
+
 // vim: fdm=marker commentstring=//%s
